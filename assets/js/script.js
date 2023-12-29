@@ -137,3 +137,32 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
   });
 }
+
+var mainframe=document.querySelector(".Project-List")
+var projectback=document.querySelectorAll(".project-button")
+var hic=document.querySelector(".hic")
+var HIC=document.querySelector(".HIC")
+var oracle=document.querySelector(".oracle")
+var ORACLE=document.querySelector(".ORACLE")
+var current = NaN
+for (let i = 0; i < projectback.length; i++) {
+  projectback[i].addEventListener("click",(e)=> {
+    var targetElement = e.target;
+    console.log(e.target,e.target.parent)
+    if (targetElement){
+     var parentElement = targetElement.parentNode;
+     parentElement.style.display = 'none';
+     mainframe.style.display = 'block';
+    }
+   })
+}
+
+hic.addEventListener("click",(e)=>{
+  mainframe.style.display = 'none';
+  HIC.style.display = 'block';
+})
+
+oracle.addEventListener("click",(e)=>{
+  mainframe.style.display = 'none';
+  ORACLE.style.display = 'block';
+})

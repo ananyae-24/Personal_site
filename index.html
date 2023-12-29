@@ -741,13 +741,119 @@
         <!--
         - #PORTFOLIO
       -->
-
+        
         <article class="portfolio" data-page="portfolio">
-          <!-- <header>
+         <header>
             <h2 class="h2 article-title">Portfolio</h2>
           </header>
+          <!-- HIC prediction -->
+          <section>
+            <section class="project-details HIC">
+            <div class="project-button"> < Go Back </div>
+            
+            <h2 class="h2"> HIC Prediction using Machine Learning</h1>
+            <h2 class="h2"> Project Abstract</h1>
 
-          <section class="projects">
+              <p>I developed a CNN-based neural network for predicting Hi-C interactions from genomic sequences, enhancing the model with chromHMM protein annotations. The results show a significant improvement, indicating increased predictive power by incorporating chromatin states.</p>
+
+              <h2 class="h2">1. Introduction</h2>
+              <p>Chromatin's 3D structure is vital for cellular functions, but linking linear genome sequences to spatial structures remains challenging. My work utilizes deep learning to predict Hi-C matrices from genomic sequences, offering a swift and cost-effective alternative to traditional methods.</p>
+
+              <h3>1.1 Contributions</h3>
+              <ul>
+                  <li>Implemented a PyTorch-based CNN architecture (Base-Model).</li>
+                  <li>Extended the Base-Model to include ChromHMM sequence, demonstrating improved predictive ability (ChromHMM-Model).</li>
+                  <li>Optimized the 1D to 2D transformation as a self-attention operation.</li>
+              </ul>
+
+              <h2 class="h2">2. Background</h2>
+              <p>Understanding genome folding is crucial, and Hi-C sequencing provides insights into chromosomal interactions. Denser Hi-C regions correlate with heterochromatin, while less dense regions associate with euchromatin, revealing the genome's functional state. My model focuses on predicting locus-specific genome folding from 1 Mb DNA sequences.</p>
+
+            
+              <h2 class="h2">3. Approach</h2>
+              <h3 class="h3">3.1 Data Preprocessing</h3>
+              <ul>
+                  <li>Hi-C Matrices: Processed and interpolated missing values.</li>
+                  <li>Genome Sequences: One-hot encoded for learnability.</li>
+                  <li>ChromHMM Input: One-hot encoded from integer states.</li>
+              </ul>
+
+              <h3 class="h3">3.2 Base-Model</h3>
+              <ul>
+                  <li>Utilized 1D convolutional layers, ResNet layers, and a self-attention layer.</li>
+                  <li>Trained on default MSE loss.</li>
+              </ul>
+
+              <h3 class="h3">3.3 ChromHMM-Model</h3>
+              <ul>
+                  <li>Added an extra 'head' to incorporate ChromHMM sequence.</li>
+                  <li>Applied 1D convolutional layers, ResNet layers, and self-attention before combining ChromHMM with the genetic sequence.</li>
+              </ul>
+
+              <h3 class="h3">3.4 Loss Function</h3>
+              <p>Used mean squared error (MSE) loss and experimented with weighted MSE (W-MSE).</p>
+
+
+             <h2 class="h2">4 Result</h2>
+              <div class="project-image-container">
+                <figure>
+                  <img src="./assets/images/original.png" alt="Original Hi-C" />
+                  <figcaption>Original Hi-C</figcaption>
+                </figure>
+                <figure>
+                  <img src="./assets/images/predicted.png" alt="Predicted Hi-C" />
+                  <figcaption>Predicted Hi-C</figcaption>
+                </figure>
+                
+              </div>
+             <h2 class="h2">5 Github Link </h2>
+             <p>Check out the project on GitHub: <a href="https://github.com/ananyae-24/ESE5460" target="_blank">GitHub Repository</a></p>
+            </section>
+          </section>
+          <!-- Oracle prediction -->
+          <section class="project-details ORACLE">
+            <div class="project-button"> < Go Back </div>
+            <h2 class="h2">Solving Quantile Crossing for Prediction Interval of Forecast</h2>
+    
+            <h3 class="h3">Introduction</h3>
+            <p>
+                During my internship at Oracle, I worked on solving the problem of Quantile Crossing, a challenge in Quantile regression. This project aimed to address the limitations of existing models, specifically focusing on long seasonality data.
+            </p>
+    
+            <h3 class="h3">Background</h3>
+            <p>
+                Quantile Regression is a statistical technique used to model the conditional distribution of a response variable. Quantile Crossings occur when the predicted quantiles of a distribution intersect, leading to inaccurate predictions. In the context of forecasting, this can result in unreliable prediction intervals.
+            </p>
+            <p>
+                To tackle this issue, I devised an Incremental Quantile Functions (IQF) approach. Instead of predicting quantiles directly, I created an IQF block that predicts the distance between quantiles. By enforcing these distances to be only positive, I successfully eliminated Quantile Crossings.
+            </p>
+    
+            <h3 class="h3">Strategy</h3>
+            <ul>
+
+                <li>Implemented a Seq-2-Seq model using LSTM in encoder and decoder on a standard data set.</li>
+                <li>Trained the model on various loss functions such as pinball loss, multi-pinball loss, Continuous Rank</li>
+                <li>Probability Score, and penalized crossing to reduce the number of Quantile crossings.</li>
+                <li>Implemented approaches such as Incremental Quantile Functions (IQF) and Distributional Output instead of point estimation, thereby fully eliminating the Quantile Crossings.</li>
+                <li>Evaluated the results using Weighted Quantile loss (WQL), Mean Squared Error (MSE), Mean Absolute Error (MAE), Symmetric Mean Squared Error for each model.</li>
+                <li>Implemented SARIMA and SARIMAX using Statsmodel (a library in Python) on a self-generated dataset; Used Fourier Features of various lengths as exogenous features for SARIMAX.</li>
+            </ul>
+    
+            <h3 class="h3">Result</h3>
+            <p>
+                Evaluated the different model performances using Mean Squared Error on validation and test, finally recommending using IQF layer with multi-pinball loss to train the model.
+                Recommended using SARIMAX with one Fourier Feature as it performed better than SARIMA.
+            </p>
+    
+            <figure>
+              <img src="./assets/images/Quantiles.png" alt="Quantiles" />
+              <figcaption>Predicted Quantiles and Mean Prediction</figcaption>
+            </figure>
+            <h3 class="h3">Colab Link</h3>
+            <p>Check out the project on Colab: <a href="https://colab.research.google.com/drive/1bW4DnHnCrs5xv4A5gk9Y2RJToPAolz5U?usp=sharing" target="_blank">Colab Link</a></p>
+            
+        </section>
+          <!-- <section class="projects">
             <ul class="filter-list">
               <li class="filter-item">
                 <button class="active" data-filter-btn>All</button>
@@ -764,9 +870,9 @@
               <li class="filter-item">
                 <button data-filter-btn>Web development</button>
               </li>
-            </ul>
+            </ul> -->
 
-            <div class="filter-select-box">
+            <!-- <div class="filter-select-box">
               <button class="filter-select" data-select>
                 <div class="select-value" data-selecct-value>
                   Select category
@@ -794,13 +900,31 @@
                   <button data-select-item>Web development</button>
                 </li>
               </ul>
-            </div>
-
+            </div> -->
+            <div class="Project-List">
             <ul class="project-list">
+              <li class="project-item active hic"  >
+                <a href="#">
+                  <figure class="project-img">
+                    <div class="project-item-icon-box">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+
+                    <img
+                      src="./assets/images/original.png"
+                      alt="ML"
+                      loading="lazy"
+                    />
+                  </figure>
+
+                  <h3 class="project-title">Machine Learning</h3>
+
+                  <p class="project-category">Predicting Hic using Machine Learning </p>
+                </a>
+              </li>
+
               <li
-                class="project-item active"
-                data-filter-item
-                data-category="web development"
+                class="project-item active oracle"
               >
                 <a href="#">
                   <figure class="project-img">
@@ -809,43 +933,19 @@
                     </div>
 
                     <img
-                      src="./assets/images/project-1.jpg"
-                      alt="finance"
+                      src="./assets/images/quantile1.png"
+                      alt="oracle"
                       loading="lazy"
                     />
                   </figure>
 
-                  <h3 class="project-title">Finance</h3>
+                  <h3 class="project-title">Machine Learning</h3>
 
-                  <p class="project-category">Web development</p>
+                  <p class="project-category">Quantile Regression and Quantile Crossing</p>
                 </a>
               </li>
 
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="web development"
-              >
-                <a href="#">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-2.png"
-                      alt="orizon"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">Orizon</h3>
-
-                  <p class="project-category">Web development</p>
-                </a>
-              </li>
-
-              <li
+              <!-- <li
                 class="project-item active"
                 data-filter-item
                 data-category="web design"
@@ -1011,9 +1111,11 @@
 
                   <p class="project-category">Web development</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
-          </section> -->
+            </div>
+          </section> 
+        
         </article>
 
         <!--
